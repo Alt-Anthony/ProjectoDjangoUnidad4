@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import CreateView, FormView, View
+from .forms import Project
 from .forms import NewUser
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import ProjectModel
 
 class AdministracionView(View):
     def get(self, request):
@@ -10,10 +13,18 @@ class AdministracionView(View):
 
 
 class SignUp(CreateView):
-    form = NewUser
+    form_class = NewUser
     template_name = 'register/registracion.html'
 
     def form_valid(self, form):
         form.save()
         return redirect('login')
 
+class CreateProject(FormView):
+    model = ProjectModel
+    form_class = Project
+    template_name = 'register/add_project.html'
+
+    def form_valid(self, form):
+        ProjectModel.objects.create(**form.cleaned_data)
+        return redirect('main')

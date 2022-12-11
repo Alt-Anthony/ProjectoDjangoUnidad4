@@ -12,7 +12,12 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
 }
-
+button {
+  color: yellowgreen;
+}
+form {
+  text-align: justify;
+}
 a {
   color: #3b4ef8;
   text-decoration: none;

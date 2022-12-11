@@ -1,0 +1,21 @@
+{% extends '../base.html' %} {% load static %}{% block content%}
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
+      <h1>Crea tu Projecto</h1>
+      <h2>LLena el formulario</h2>
+      <img src="{% static 'assets/img/hero-img.png' %}" class="img-fluid hero-img" alt="" data-aos="zoom-in" data-aos-delay="150">
+            <form method='post' novalidate>
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="text-center">
+                <button type="submit">Crear Projecto</button>
+            </div>
+          </form>
+    
+    </div>
+
+  </section><!-- End Hero -->
+
+
+{% endblock content %}
