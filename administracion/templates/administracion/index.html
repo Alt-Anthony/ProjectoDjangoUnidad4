@@ -3,16 +3,16 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Bikin</a></h1>
+      <h1 class="logo"><a>Bikin</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Crea tu cuenta</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">PortaFolios</a></li>
-        
-          <li><a class="nav-link scrollto" href="#contact">Ingresa a tu cuenta</a></li>
+          <li><a class="nav-link scrollto active" href="{% url 'registro' %}">Crea tu cuenta</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'portafolios' %}">PortaFolios</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'create_project' %}">Crea tu Portafolio</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'login' %}">Ingresa a tu cuenta</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

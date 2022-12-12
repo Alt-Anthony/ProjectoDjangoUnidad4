@@ -22,6 +22,6 @@ class NewUser(UserCreationForm):
 class Project(forms.Form):
     titulo = forms.CharField(max_length=100, required=True)
     descripcion = forms.CharField(max_length=200, required=True)
-    url_foto = forms.URLField(required=True)
+    foto_url = forms.URLField(required=True)
     tags = forms.CharField(max_length=100, required=True)
-    url_github = forms.URLField(required=True)
+    github_url = forms.URLField(required=True)

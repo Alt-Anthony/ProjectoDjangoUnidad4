@@ -20,14 +20,14 @@ class SignUp(CreateView):
         form.save()
         return redirect('login')
 
-class CreateProject(FormView):
+class CreateProject(LoginRequiredMixin,FormView):
     model = ProjectModel
     form_class = Project
     template_name = 'register/add_project.html'
 
     def form_valid(self, form):
         ProjectModel.objects.create(**form.cleaned_data)
-        return redirect('main')
+        return redirect('index')
 
 class Portafolio_page(View):
     def get(self, request):
@@ -35,5 +35,13 @@ class Portafolio_page(View):
         extra_context ={
             'lista': ProjectModel.objects.all()
         }
+        return render(request, template_name, extra_context)
 
+
+class ViewProject(View):
+    def get(self, request,id):
+        template_name = 'portafolios/projectview.html'
+        extra_context ={
+            'project': ProjectModel.objects.get(id=id)
+        }
         return render(request, template_name, extra_context)
