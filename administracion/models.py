@@ -12,3 +12,9 @@ class ProjectModel(models.Model):
     
     class Meta:
         db_table = 'Proyectos'
+
+class IPs(models.Model):
+    ip = models.CharField(max_length=50)
+
+    class Meta:
+        db_table = 'IP'

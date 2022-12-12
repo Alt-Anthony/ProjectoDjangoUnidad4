@@ -3,8 +3,8 @@ from django.views.generic import CreateView, FormView, View
 from .forms import Project
 from .forms import NewUser
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import ProjectModel
-
+from .models import ProjectModel,IPs
+from ipware import get_client_ip
 class AdministracionView(View):
     def get(self, request):
             template_name = "administracion/index.html"
@@ -35,7 +35,11 @@ class Portafolio_page(View):
         extra_context ={
             'lista': ProjectModel.objects.all()
         }
+        ip_user, ip_boolean = get_client_ip(request)
+        res = IPs(ip = ip_user)
+        res.save()
         return render(request, template_name, extra_context)
+
 
 
 class ViewProject(View):

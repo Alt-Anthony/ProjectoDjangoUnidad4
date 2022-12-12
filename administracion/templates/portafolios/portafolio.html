@@ -18,15 +18,14 @@
         <ul>
           <li><a class="nav-link scrollto active" href="{% url 'index' %}">Pagina Principal</a></li> 
           <li><a class="nav-link scrollto" href="{% url 'login' %}">Ingresa a tu cuenta</a></li>
-          <li><a class="nav-link scrollto" href="{% url 'create_project' %}">Crea tu PortaFolio</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'create_project' %}">Crea tu PortaFolio</a></li><li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-<section id="portfolio" class="portfolio">
+<div id="portfolio" class="portfolio">
     <div class="container" data-aos="fade-up">
         <div class="button btn warning"></div>
       <div class="section-title">
@@ -35,6 +34,7 @@
 
       </div>
       </div>
+      <div>
       {% block body %}
       <div class="row portfolio-container">
         {% for i in lista%}
@@ -45,22 +45,18 @@
             <div class="portfolio-info">
               <h4>{{i.titulo}}</h4>
             <p class="card-text" style='text-align: justify;'>
-                {% if i.descripcion|length < 70 %}
-                  {{i.descripcion}}
-                {% else %}
-                  {{i.descripcion|slice:70}}...
-                {% endif %}
             </p>
               <div class="portfolio-links">
-                <a href="{% static 'assets/img/portfolio/portfolio-1.jpg' %}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                <a href=" {{i.foto_url}} " data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
                 <a href="{% url 'view_proyecto' id=i.id %}" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
-        </div>
+        </div><div>
       </div>
-      {% endfor %}
+            {% endfor %}
     </div>
+</div></div>
     {% endblock body %} 
   </section>
 

@@ -6,7 +6,7 @@
 {% block li_nav %}
 <li class="nav-item"><a class="nav-link" href="{% url 'index' %}"><strong>Portfolio</strong></a></li>
 {% if request.user.is_authenticated %}
-  <li class="nav-item"><a class="nav-link" href="#"><strong>Welcome, {{request.user.username}}</strong></a></li>
+  <li class="nav-item"><a class="nav-link" href="#"><strong>Bienvenido, {{request.user.username}}</strong></a></li>
   <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
 {% endif %}
 {% endblock li_nav  %}
