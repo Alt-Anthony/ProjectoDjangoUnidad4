@@ -28,3 +28,12 @@ class CreateProject(FormView):
     def form_valid(self, form):
         ProjectModel.objects.create(**form.cleaned_data)
         return redirect('main')
+
+class Portafolio_page(View):
+    def get(self, request):
+        template_name='portafolios/portafolio.html'
+        extra_context ={
+            'lista': ProjectModel.objects.all()
+        }
+
+        return render(request, template_name, extra_context)

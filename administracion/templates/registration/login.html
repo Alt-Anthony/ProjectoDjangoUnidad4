@@ -1,0 +1,36 @@
+{% extends '../base.html' %}
+{% load static %}
+{% block content%}
+<section id="pricing" class="pricing section-bg">
+  <div class="container" data-aos="fade-up">
+    <a class="btn btn-warning" href="{% url 'registro' %}">Crear una cuenta</a>
+    <a class="btn btn-warning" href="{% url 'index' %}">Pagina principal</a>
+    <div class="section-title">
+      <h2>Login</h2>
+      <p>Ingresa tus datos: Username y Contraseña</p>
+    </div>
+
+    
+
+      <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="100">
+        <div class="box featured">
+          <form method='post' novalidate>
+            {% csrf_token %}
+            <div class="form-outline form-white mb-4">
+              <input type="email" name="username" id="typeEmailX" class="form-control form-control-lg" />
+              <label class="form-label pt-1" for="typeEmailX">Username</label>
+            </div>
+            <div class="form-outline form-white mb-4">
+              <input type="password" name="password" id="typePasswordX" class="form-control form-control-lg" />
+              <label class="form-label pt-1" for="typePasswordX">Password</label>
+            </div>
+            <button class="btn btn-warning " type="submit">Login</button>
+          </form>
+
+      </div>
+
+      
+
+  </div>
+</section><!-- End Pricing Section -->
+{% endblock content %}
